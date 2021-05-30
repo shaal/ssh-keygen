@@ -1,5 +1,4 @@
 var spawn = require('child_process').spawn;
-var _ = require('underscore');
 var fs = require('fs');
 var os = require('os');
 var path = require('path');
@@ -116,9 +115,10 @@ module.exports = function(opts, callback){
 	var location = opts.location;
 	if(!location) location = path.join(os.tmpdir(),'id_rsa');
 
-	if(_.isUndefined(opts.read)) opts.read = true;
-	if(_.isUndefined(opts.force)) opts.force = true;
-	if(_.isUndefined(opts.destroy)) opts.destroy = false;
+	if(isUndefined(opts.read)) opts.read = true;
+	if(isUndefined(opts.force)) opts.force = true;
+	if(isUndefined(opts.destroy)) opts.destroy = false;
+	console.log();
 
 	checkAvailability(location, opts.force, function(err){
 		if(err){
@@ -128,3 +128,7 @@ module.exports = function(opts, callback){
 		ssh_keygen(location, opts, callback);
 	});
 };
+
+function isUndefined(myvar) {
+  return typeof myvar === 'undefined';
+}

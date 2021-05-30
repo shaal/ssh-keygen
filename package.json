@@ -25,9 +25,6 @@
   },
   "main": "src/ssh-keygen",
   "description": "Generates SSH key-pairs",
-  "dependencies": {
-    "underscore": "1.4.x"
-  },
   "licenses": [
     {
       "type": "MIT",
